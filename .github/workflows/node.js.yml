@@ -8,12 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Download and install chrome
-        run: |
-          apt-get update
-          apt-get -y install sudo
-          wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_95.0.4638.69-1_amd64.deb
-          sudo apt -y install ./google-chrome-stable_95.0.4638.69-1_amd64.deb
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
       - uses: actions/checkout@v2
         with:
           fetch-depth: '0'
